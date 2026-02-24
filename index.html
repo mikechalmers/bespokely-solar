@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bespokely Solar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Bespokely Solar</p>
+          <h1>Energy At A Glance</h1>
+          <p id="statusText" class="status">Loading latest data...</p>
+        </div>
+        <div class="controls">
+          <button id="refreshButton" type="button">Refresh</button>
+          <small id="updatedAt">Not updated yet</small>
+        </div>
+      </header>
+
+      <section aria-label="Key metrics" class="grid metrics-grid">
+        <article>
+          <h2>Current Power</h2>
+          <p id="currentPower" class="metric">--</p>
+        </article>
+        <article>
+          <h2>Energy Today</h2>
+          <p id="energyToday" class="metric">--</p>
+        </article>
+        <article>
+          <h2>Peak Today</h2>
+          <p id="peakPower" class="metric">--</p>
+        </article>
+        <article>
+          <h2>CO2 Avoided Today</h2>
+          <p id="co2Avoided" class="metric">--</p>
+        </article>
+      </section>
+
+      <section aria-label="Fun comparisons" class="grid comparison-grid">
+        <article>
+          <h2>Kettles Boiled</h2>
+          <p id="kettleCount" class="metric">--</p>
+          <small>Assumes 0.11 kWh per boil</small>
+        </article>
+        <article>
+          <h2>MacBooks Fully Charged</h2>
+          <p id="macbookCount" class="metric">--</p>
+          <small>Assumes 0.07 kWh per full charge</small>
+        </article>
+        <article>
+          <h2>Homes Powered Right Now</h2>
+          <p id="homesPowered" class="metric">--</p>
+          <small>Assumes 1.25 kW average load per home</small>
+        </article>
+      </section>
+
+      <section aria-label="Charts" class="grid chart-grid">
+        <article>
+          <h2>Power Through Today</h2>
+          <canvas id="powerChart"></canvas>
+        </article>
+        <article>
+          <h2>Daily Energy (Last 30 Days)</h2>
+          <canvas id="energyChart"></canvas>
+        </article>
+      </section>
+    </main>
+
+    <script>
+      window.SOLAR_DASHBOARD_CONFIG = {
+        useMockData: false,
+        baseUrl: "https://occasions.notanotherbill.com",
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+    <script type="module" src="./assets/js/main.js"></script>
+  </body>
+</html>

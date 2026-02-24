@@ -1,0 +1,117 @@
+{
+  "info": {
+    "name": "SolarEdge Monitoring API",
+    "description": "Endpoints for the /solar route — proxies SolarEdge Monitoring API with MongoDB caching.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5050",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Get Site Overview",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/solar/overview",
+          "host": ["{{baseUrl}}"],
+          "path": ["solar", "overview"]
+        },
+        "description": "Current power, lifetime/year/month/day energy totals, and revenue. Cached for 5 minutes."
+      },
+      "response": []
+    },
+    {
+      "name": "Get Energy Production",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/solar/energy?startDate=2026-01-01&endDate=2026-01-31&timeUnit=DAY",
+          "host": ["{{baseUrl}}"],
+          "path": ["solar", "energy"],
+          "query": [
+            {
+              "key": "startDate",
+              "value": "2026-01-01",
+              "description": "Start date (YYYY-MM-DD)"
+            },
+            {
+              "key": "endDate",
+              "value": "2026-01-31",
+              "description": "End date (YYYY-MM-DD)"
+            },
+            {
+              "key": "timeUnit",
+              "value": "DAY",
+              "description": "QUARTER_OF_AN_HOUR, HOUR, DAY, WEEK, MONTH, or YEAR"
+            }
+          ]
+        },
+        "description": "Energy production over a date range. Cached 1h for DAY/WEEK, 6h for MONTH/YEAR."
+      },
+      "response": []
+    },
+    {
+      "name": "Get Energy (Monthly)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/solar/energy?startDate=2025-01-01&endDate=2026-01-31&timeUnit=MONTH",
+          "host": ["{{baseUrl}}"],
+          "path": ["solar", "energy"],
+          "query": [
+            {
+              "key": "startDate",
+              "value": "2025-01-01"
+            },
+            {
+              "key": "endDate",
+              "value": "2026-01-31"
+            },
+            {
+              "key": "timeUnit",
+              "value": "MONTH"
+            }
+          ]
+        },
+        "description": "Monthly energy production over a longer range. Cached for 6 hours."
+      },
+      "response": []
+    },
+    {
+      "name": "Get Current Power Flow",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/solar/power-flow",
+          "host": ["{{baseUrl}}"],
+          "path": ["solar", "power-flow"]
+        },
+        "description": "Real-time power flow between PV, grid, load, and storage. Cached for 5 minutes."
+      },
+      "response": []
+    },
+    {
+      "name": "Get Environmental Benefits",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/solar/env-benefits",
+          "host": ["{{baseUrl}}"],
+          "path": ["solar", "env-benefits"]
+        },
+        "description": "CO2 saved, trees planted, light bulbs equivalent. Cached for 24 hours."
+      },
+      "response": []
+    }
+  ]
+}

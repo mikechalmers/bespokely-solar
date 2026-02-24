@@ -1,0 +1,107 @@
+:root {
+  --font-family: "Manrope", sans-serif;
+  --primary: #2f9e44;
+  --primary-hover: #2b8a3e;
+  --card-bg: rgba(255, 255, 255, 0.92);
+  --status-error: #9e1a1a;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top right, rgba(255, 205, 86, 0.25), transparent 40%),
+    radial-gradient(circle at top left, rgba(47, 158, 68, 0.18), transparent 45%),
+    #f6f7f4;
+}
+
+main.container {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.status {
+  margin-top: 0.4rem;
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
+.status-error {
+  color: var(--status-error);
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-end;
+}
+
+.metrics-grid,
+.comparison-grid,
+.chart-grid {
+  margin-top: 1rem;
+}
+
+article {
+  background: var(--card-bg);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+}
+
+article h2 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.metric {
+  font-size: clamp(1.45rem, 3vw, 2.2rem);
+  font-weight: 800;
+  margin: 0;
+}
+
+.chart-grid article {
+  height: 360px;
+  overflow: hidden;
+}
+
+.chart-grid canvas {
+  display: block;
+  width: 100% !important;
+  height: 280px !important;
+  max-height: 280px;
+}
+
+@media (max-width: 767px) {
+  .controls {
+    align-items: flex-start;
+  }
+
+  .hero {
+    margin-bottom: 0.5rem;
+  }
+
+  .chart-grid article {
+    height: 320px;
+  }
+
+  .chart-grid canvas {
+    height: 240px !important;
+    max-height: 240px;
+  }
+}
