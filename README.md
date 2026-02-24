@@ -107,15 +107,15 @@ We are launching on GitHub Pages first because it is fast, free, and enough for 
 
 Planned path:
 
-1. Launch quickly on GitHub Pages for validation and junior-dev iteration.
+1. Launch quickly on GitHub Pages for validation and junior-dev iteration. ✅
 2. Move to a custom subdomain later (for example `solar.bespokely.cc`) once we want branded access and longer-term hosting polish.
 
-## Deploy to GitHub Pages (current)
+## Deploy to GitHub Pages (current) ✅
 
-1. Push this directory to your GitHub repo default branch.
-2. In GitHub repo settings, enable Pages for the branch/folder containing `index.html`.
-3. Open the GitHub Pages URL and verify calls to `/solar/overview` and `/solar/energy`.
-4. Ensure API CORS allows your GitHub Pages origin.
+1. Push this directory to your GitHub repo default branch. ✅
+2. In GitHub repo settings, enable Pages for the branch/folder containing `index.html`. ✅
+3. Open the GitHub Pages URL and verify calls to `/solar/overview` and `/solar/energy`. ✅
+4. Ensure API CORS allows your GitHub Pages origin. ✅
 
 ## Move to custom subdomain (later)
 
